@@ -27,6 +27,11 @@ output "master_instance" {
   value       = google_sql_database_instance.master.self_link
 }
 
+output "master_service_account" {
+  description = "Self link to the master instance"
+  value       = google_sql_database_instance.master.service_account_email_address
+}
+
 output "master_proxy_connection" {
   description = "Master instance path for connecting with Cloud SQL Proxy. Read more at https://cloud.google.com/sql/docs/mysql/sql-proxy"
   value       = "${var.project}:${var.region}:${google_sql_database_instance.master.name}"
